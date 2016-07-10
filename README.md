@@ -1,6 +1,10 @@
 # mruby-secure-compare
 Secure String comparisons for mruby
 
+Examples
+========
+Always use the secret as the first argument.
+
 ```c
 #include <mruby/secure_compare.h>
 #include <mruby/string.h>
