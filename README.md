@@ -11,7 +11,9 @@ if (mrb_secure_memcmp(RSTRING_PTR(secret), RSTRING_LEN(secret_len), RSTRING_PTR(
 ```
 
 ```ruby
-if "hallo".securecmp("hallo")
+my_super_secure_secret = "hallo"
+user_input = "hallo"
+if my_super_secure_secret.securecmp(user_input)
   puts "access granted"
 end
 ```

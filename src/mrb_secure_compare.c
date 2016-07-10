@@ -34,12 +34,11 @@ mrb_secure_memcmp(const void * const secret_, mrb_int secret_len, const void * c
 static mrb_value
 mrb_string_securecmp(mrb_state *mrb, mrb_value self)
 {
-  char *input;
-  mrb_int input_len;
+  mrb_value input;
 
-  mrb_get_args(mrb, "s", &input, &input_len);
+  mrb_get_args(mrb, "S", &input);
 
-  return mrb_bool_value(mrb_secure_memcmp(RSTRING_PTR(self), RSTRING_LEN(self), input, input_len));
+  return mrb_bool_value(mrb_secure_memcmp(RSTRING_PTR(self), RSTRING_LEN(self), RSTRING_PTR(input), RSTRING_LEN(input)));
 }
 
 void
