@@ -2,13 +2,16 @@
 Secure String comparisons for mruby
 
 ```c
+#include <mruby/secure_compare.h>
+#include <mruby/string.h>
+
 if (mrb_secure_memcmp(RSTRING_PTR(secret), RSTRING_LEN(secret_len), RSTRING_PTR(input), RSTRING_LEN(input))) {
   puts ("access granted");
 }
 ```
 
 ```ruby
-if "hallo".secure_cmp("hallo")
+if "hallo".securecmp("hallo")
   puts "access granted"
 end
 ```
