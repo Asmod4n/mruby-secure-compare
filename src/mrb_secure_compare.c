@@ -17,14 +17,14 @@ mrb_secure_memcmp(const void * const secret_, mrb_int secret_len, const void * c
   const volatile unsigned char *volatile input =
     (const volatile unsigned char * volatile) input_;
 
-  mrb_int input_pos;
+  mrb_int input_pos = 0;
   mrb_int result = secret_len - input_len;
 
   if (unlikely(secret_len == 0 && input_len != 0)) {
     return FALSE;
   }
 
-  for (input_pos = 0; input_pos < input_len; input_pos++) {
+  for (; input_pos < input_len; input_pos++) {
     result |= input[input_pos] ^ secret[input_pos % secret_len];
   }
 

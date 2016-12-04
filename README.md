@@ -9,6 +9,9 @@ Always use the secret as the first argument.
 #include <mruby/secure_compare.h>
 #include <mruby/string.h>
 
+mrb_value secret = mrb_str_new_lit(mrb, "hallo");
+mrb_value input = mrb_str_new_lit(mrb, "hallo");
+
 if (mrb_secure_memcmp(RSTRING_PTR(secret), RSTRING_LEN(secret_len), RSTRING_PTR(input), RSTRING_LEN(input))) {
   puts ("access granted");
 }
